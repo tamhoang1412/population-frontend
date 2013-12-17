@@ -1,12 +1,20 @@
-<ul>
-  <li class="dropdown">
-    <a class="dropdown-toggle">
-      Click me to see some awesome things!
-    </a>
-    <ul class="dropdown-menu">
-      <li ng-repeat="thing in awesomeThings">
-        <a>{{thing}}</a>
-      </li>
-    </ul>
-  </li>
-</ul>
+<div class="hero-unit">
+  <h1>'Allo, 'Allo!</h1>
+  <p>You now have installed awesome things!</p>
+  <ul>
+    <li class="dropdown">
+      <a class="dropdown-toggle">
+        Click me to see more...
+      </a>
+      <ul class="dropdown-menu">
+
+        <!-- Here we use the AngularJS directive: ng-repeat to loop through our awesomeThings 
+        and print them out as list items using the {{}} bindings -->
+        <li ng-repeat="thing in awesomeThings">
+          <a>{{thing}}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Enjoy coding! - Yeoman</h3>
+</div>
