@@ -23,7 +23,7 @@ This project is a clone of https://github.com/Haizyfox/sp-yeoman.git. There are 
 ## Install Yeoman, Grunt and Bower
 	$ npm install -g yo grunt-cli bower
 
-## Setting Up AngularJS using generator-angular templete
+## Setting Up AngularJS using generator-angular template
 	$ npm install -g generator-angular
 	$ yo angular 
 
