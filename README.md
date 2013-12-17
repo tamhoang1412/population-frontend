@@ -1,5 +1,5 @@
-Kickstart Your AngularJS Development with Yeoman, Grunt and Bower
-=================================================================
+Kickstart Your AngularJS Development
+====================================
 
 Examples from Kickstart Your AngularJS Development with Yeoman, Grunt and Bower By Brad Barrow
 
@@ -19,6 +19,7 @@ This project is a clone of https://github.com/Haizyfox/sp-yeoman.git. There are 
 - [CoffeeScript vs. TypeScript vs. Dart](http://codeforhire.com/2013/06/18/coffeescript-vs-typescript-vs-dart/)
 - [Why does TypeScript have to be the answer to anything?](http://www.hanselman.com/blog/WhyDoesTypeScriptHaveToBeTheAnswerToAnything.aspx)
 - [Getting started with TypeScript](http://dsheiko.com/weblog/getting-started-with-typescript) By Dmitry Sheiko
+- [Karma: AngularJS Automated Test Runner](https://blogs.oracle.com/geertjan/entry/karma_angularjs_with_netbeans_ide) By Geertjan
 
 ## Install Yeoman, Grunt and Bower
 	$ npm install -g yo grunt-cli bower
@@ -31,3 +32,10 @@ This project is a clone of https://github.com/Haizyfox/sp-yeoman.git. There are 
 	$ npm install
 	$ bower install
 	$ grunt server
+
+## How to build
+	- Install Ruby
+	- Install Compass framework
+	- Set CHROME_BIN environment variable, if necessary
+		Example: $ set CHROME_BIN=C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+	- Run 'grunt build'
