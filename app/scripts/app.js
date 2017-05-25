@@ -26,36 +26,43 @@
 //     });
 //   });
 
-// var app = angular.module('testApp', [
-//   'ui.router'
-// ]);
+var app = angular.module('testApp', [
+	'restangular',
+	'ui.router'
+]);
 
-// /**
-//  * The application routing.
-//  */
-//  app.config([
-//   '$stateProvider',
-//   '$urlRouterProvider',
-//   function ($stateProvider, 
-//             $urlRouterProvider){
-//     $urlRouterProvider.otherwise('/');
+app.config([
+  '$stateProvider',
+  '$urlRouterProvider',
+  '$httpProvider',
+  'RestangularProvider',
+function ($stateProvider, 
+          $urlRouterProvider,
+          $httpProvider,
+          RestangularProvider){
+    RestangularProvider.setBaseUrl('http://localhost:9000/');
+    RestangularProvider.setRequestInterceptor(function (elem, operation, what) {
+      if (operation === 'put') {
+        elem._id = undefined;
+      }
+      return elem;
+    });
 
-//     $stateProvider
-//       .state('/', {
-//         url: '/',
-//         templateUrl: '/views/main.html',
-//         controller: 'MainCtrl'
-//       })
-//   }
-//   ]);
+    $httpProvider.defaults.headers.common = {};
+    $httpProvider.defaults.headers.post = {};
+    $httpProvider.defaults.headers.put = {};
+    $httpProvider.defaults.headers.patch = {};
 
-angular.module('testApp', [
-  'ui.router'
-  ]);
-
-angular.module('testApp').config(function($sta@@))
-
-
-
-
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
+      .state('home', {
+        abstract: true,
+        templateUrl: 'index.html'
+      })
+        .state('home.homePage', {
+            url: '/home-page',
+            templateUrl: '/views/main.html',
+            title: 'Home page'
+          });
+}]);
 

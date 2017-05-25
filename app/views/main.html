@@ -1,4 +1,4 @@
-<div class="hero-unit">
+<div class="hero-unit" ng-controller="MainCtrl">
   <h1>'Allo, 'Allo!</h1>
   <p>You now have installed awesome things!</p>
   <ul>
@@ -6,6 +6,7 @@
       <a class="dropdown-toggle">
         Click me to see more...
       </a>
+      <div> abc {{content}}</div>
       <ul class="dropdown-menu">
 
         <!-- Here we use the AngularJS directive: ng-repeat to loop through our awesomeThings 
