@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="hero-unit" ng-controller="CountryCtrl">
+  <!--<div class="dropdown">-->
+    <!--<a class="btn btn-default dropdown-toggle" id="country-menu" data-toggle="dropdown" href="#">-->
+      <!--{{countries[0].name}} <span class="caret"></span>-->
+    <!--</a>-->
+
+    <!--<ul class="dropdown-menu">-->
+      <!--&lt;!&ndash; Here we use the AngularJS directive: ng-repeat to loop through our awesomeThings-->
+      <!--and print them out as list items using the {{}} bindings &ndash;&gt;-->
+      <!--<li ng-repeat="country in countries">-->
+        <!--<a>{{country.name}} : {{country.code}}</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+  <ui-select ng-model="selectedCountry">
+    <ui-select-match>
+      <span ng-bind="tam"></span>
+    </ui-select-match>
+    <ui-select-choices repeat="country in (countries)">
+      <span ng-bind="country.name"></span>
+    </ui-select-choices>
+  </ui-select>
+  {{countries}}
+</div>
