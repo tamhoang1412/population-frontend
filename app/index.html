@@ -16,7 +16,7 @@
   <!-- The ng-app directive tells angular which module we'll use for our app. In this case the one defined in scripts/app.js -->
   <body ng-app="testApp">
     <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frtme</a> to better experience this site.</p>
     <![endif]-->
 
     <!--[if lt IE 9]>
@@ -25,12 +25,16 @@
     <![endif]-->
 
     <!-- The ng-view directive specifies that our templates (such as views/main.html) will be loaded into this div. -->
-    <div class="container" ng-view></div>
+    <div>Home page</div>
+    <div class="container" ui-view></div>
 
     <!-- Here we load AngularJS, AngularJS resource component and bootstrap related code -->
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
     <script src="components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="components/underscore/underscore-min.js"></script>
+    <script src="components/restangular/dist/restangular.min.js"></script>
 
     <!-- Here we include our own angular scripts -->
     <!-- build:js scripts/scripts.js -->
