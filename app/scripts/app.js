@@ -28,7 +28,8 @@
 
 var app = angular.module('app', [
 	'restangular',
-	'ui.router'
+	'ui.router',
+  'chart.js'
 ]);
 
 app.config([
@@ -36,10 +37,12 @@ app.config([
   '$urlRouterProvider',
   '$httpProvider',
   'RestangularProvider',
+  'ChartJsProvider',
 function ($stateProvider,
           $urlRouterProvider,
           $httpProvider,
-          RestangularProvider){
+          RestangularProvider,
+          ChartJsProvider){
     RestangularProvider.setBaseUrl('http://localhost:1412/');
     RestangularProvider.setRequestInterceptor(function (elem, operation, what) {
       if (operation === 'put') {
@@ -54,6 +57,8 @@ function ($stateProvider,
     $httpProvider.defaults.headers.patch = {};
 
     $urlRouterProvider.otherwise('/');
+    ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+
     $stateProvider
       .state('home', {
         abstract: true,
