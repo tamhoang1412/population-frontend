@@ -3,3 +3,11 @@ dist
 .tmp
 .sass-cache
 app/components
+.DS_Store
+.idea/frontend.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/sbt.xml
+.idea/vcs.xml
+.idea/workspace.xml

@@ -1,6 +1,6 @@
 'use strict';
 
-// Here we set up an angular module. We'll attach controllers and 
+// Here we set up an angular module. We'll attach controllers and
 // other components to this module.
 // angular.module('testApp', ['ui.bootstrap'])
 
@@ -9,12 +9,12 @@
 //   .config(function ($routeProvider) {
 
 //     // We use AngularJS dependency injection to fetch the route provider.
-//     // The route provider is used to setup our app's routes. 
+//     // The route provider is used to setup our app's routes.
 
 //     // The config below simply says when you visit '/' it'll render
 //     // the views/main.html template controlled by the MainCtrl controller.
 
-//     // The otherwise method specifies what the app should do if it doesn't recognise 
+//     // The otherwise method specifies what the app should do if it doesn't recognise
 //     // the route entered by a user. In this case, redirect to home.
 //     $routeProvider
 //     .when('/', {
@@ -26,9 +26,10 @@
 //     });
 //   });
 
-var app = angular.module('testApp', [
+var app = angular.module('app', [
 	'restangular',
-	'ui.router'
+	'ui.router',
+  'chart.js'
 ]);
 
 app.config([
@@ -36,11 +37,13 @@ app.config([
   '$urlRouterProvider',
   '$httpProvider',
   'RestangularProvider',
-function ($stateProvider, 
+  'ChartJsProvider',
+function ($stateProvider,
           $urlRouterProvider,
           $httpProvider,
-          RestangularProvider){
-    RestangularProvider.setBaseUrl('http://localhost:9000/');
+          RestangularProvider,
+          ChartJsProvider){
+    RestangularProvider.setBaseUrl('http://localhost:1412/');
     RestangularProvider.setRequestInterceptor(function (elem, operation, what) {
       if (operation === 'put') {
         elem._id = undefined;
@@ -54,15 +57,19 @@ function ($stateProvider,
     $httpProvider.defaults.headers.patch = {};
 
     $urlRouterProvider.otherwise('/');
+    ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+
     $stateProvider
       .state('home', {
         abstract: true,
         templateUrl: 'index.html'
       })
-        .state('home.homePage', {
-            url: '/home-page',
-            templateUrl: '/views/main.html',
-            title: 'Home page'
+        .state('home.homepage', {
+            url: '/home',
+            templateUrl: '/views/country.html',
+            controller: 'CountryCtrl'
           });
+
+
 }]);
 
