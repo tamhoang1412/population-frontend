@@ -11,3 +11,4 @@ app/components
 .idea/sbt.xml
 .idea/vcs.xml
 .idea/workspace.xml
+.idea/.name

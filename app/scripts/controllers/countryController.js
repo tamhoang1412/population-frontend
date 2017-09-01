@@ -10,7 +10,7 @@ angular.module('app')
       }
     });
     $scope.labels = ["Year"];
-    $scope.data = [[]];
+    $scope.data = [[null]];
     $scope.series = ["Population"];
     var yearStart = 1960;
     var yearEnd = 2015;
@@ -21,11 +21,11 @@ angular.module('app')
 
     $scope.loadPopulation = function(){
       Restangular.one('/population/', $scope.selectedCountry).get().then(function (response) {
-        $scope.selectedCountryName = $scope.countries[$scope.selectedCountry - 1].name
+        $scope.selectedCountryName = $scope.countries[$scope.selectedCountry - 1].name;
         if(response.code == 200) {
           $scope.population = response.data
         }
-        $scope.data = [[]];
+        $scope.data = [[null]];
         for (var i = 0; i <= yearEnd - yearStart; i++) {
           $scope.data[0].push($scope.population[i].population);
         }
