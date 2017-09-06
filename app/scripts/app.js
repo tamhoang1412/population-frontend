@@ -57,18 +57,14 @@ function ($stateProvider,
     $httpProvider.defaults.headers.patch = {};
 
     $urlRouterProvider.otherwise('/');
-    ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+    //ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
 
     $stateProvider
       .state('home', {
-        abstract: true,
-        templateUrl: 'index.html'
-      })
-        .state('home.homepage', {
-            url: '/home',
-            templateUrl: '/views/country.html',
-            controller: 'CountryCtrl'
-          });
+          url: '/',
+          templateUrl: '/views/country.html',
+          controller: 'CountryCtrl'
+        })
 
 
 }]);

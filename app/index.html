@@ -16,52 +16,39 @@
 
   <!-- The ng-app directive tells angular which module we'll use for our app. In this case the one defined in scripts/app.js -->
   <body ng-app="app" ng-controller="MainCtrl">
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frtme</a> to better experience this site.</p>
-    <![endif]-->
+    <nav class="navbar navbar-inverse bg-inverse">
+      <a class="navbar-brand" href="#">Population</a>
+    </nav>
 
-    <!--[if lt IE 9]>
-      <script src="components/es5-shim/es5-shim.js"></script>
-      <script src="components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-
-    <!-- The ng-view directive specifies that our templates (such as views/main.html) will be loaded into this div. -->
     <div class="container" ui-view></div>
 
 
-    <!-- Here we load AngularJS, AngularJS resource component and bootstrap related code -->
-    <script src="components/angular/angular.js"></script>
-    <script src="components/angular-resource/angular-resource.js"></script>
-    <script src="components/angular-bootstrap/ui-bootstrap.js"></script>
-    <script src="components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="components/underscore/underscore-min.js"></script>
-    <script src="components/restangular/dist/restangular.min.js"></script>
-    <script src="components/chart.js/dist/Chart.js"></script>
-    <script src="components/angular-chart.js/angular-chart.js"></script>
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- endbuild -->
-
-    <!-- Here we include our own angular scripts -->
-    <!-- build:js scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/countryController.js"></script>
-
-    <script src="scripts/scripts.js"></script>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-    -->
   </body>
+
+  <!-- Here we load AngularJS, AngularJS resource component and bootstrap related code -->
+  <script src="components/angular/angular.js"></script>
+  <script src="components/angular-resource/angular-resource.js"></script>
+  <script src="components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="components/underscore/underscore-min.js"></script>
+  <script src="components/restangular/dist/restangular.min.js"></script>
+  <script src="components/chart.js/dist/Chart.js"></script>
+  <script src="components/angular-chart.js/angular-chart.js"></script>
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- endbuild -->
+
+  <!-- Here we include our own angular scripts -->
+  <!-- build:js scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/countryController.js"></script>
+
+  <script src="scripts/scripts.js"></script>
 </html>
