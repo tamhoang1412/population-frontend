@@ -9,25 +9,40 @@ angular.module('app')
         $scope.countries = response.data
       }
     });
-    $scope.labels = [];
-    $scope.data = [];
+    $scope.labels = ["Year"];
+    $scope.data = [[null]];
+    $scope.series = ["Population"];
     var yearStart = 1960;
     var yearEnd = 2015;
     for (var i = yearStart; i <= yearEnd; i++) {
       $scope.labels.push(i);
     }
+    $scope.selectedCountryName = "";
 
     $scope.loadPopulation = function(){
-      console.log($scope.selectedCountry);
       Restangular.one('/population/', $scope.selectedCountry).get().then(function (response) {
+        $scope.selectedCountryName = $scope.countries[$scope.selectedCountry - 1].name;
         if(response.code == 200) {
           $scope.population = response.data
         }
-        $scope.data = [];
+        $scope.data = [[null]];
         for (var i = 0; i <= yearEnd - yearStart; i++) {
-          $scope.data.push($scope.population[i].population);
+          $scope.data[0].push($scope.population[i].population);
         }
       })
     }
+    $scope.datasetOverride = [{ yAxisID: 'y-axis' }];
+    $scope.options = {
+      scales: {
+        yAxes: [
+          {
+            id: 'y-axis',
+            type: 'linear',
+            display: true,
+            position: 'left'
+          }
+        ]
+      }
+    };
   });
 
