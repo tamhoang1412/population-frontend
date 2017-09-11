@@ -1,0 +1,55 @@
+<div class="hero-unit" ng-controller="ComparatorCtrl">
+  <h3 class=>Compare population trending between two countries</h3>
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <div>
+        <label for="selectedCountryId1">Choose the first country: </label><br>
+        <select name="selectedCountryId1" id="selectedCountryId1" ng-change="loadPopulation1()" ng-model="selectedCountryId1">
+          <option value="">---Please select---</option>
+          <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <label for="selectedCountryId2">Choose the second country: </label><br>
+        <select name="selectedCountryId2" id="selectedCountryId2" ng-change="loadPopulation2()" ng-model="selectedCountryId2">
+          <option value="">---Please select---</option>
+          <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <canvas class="chart chart-line chart_labels" chart-data="data" chart-labels="labels" chart-colors="colors"
+              chart-series="series" chart-options="options" chart-dataset-override="datasetOverride"></canvas>
+
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <h3>Population density of these two countries:</h3>
+    </div>
+    <div class="col-md-4">
+      <table class="table density-table">
+        <tbody>
+        <tr ng-repeat="i in densityMatrixRange" id="first-matrix-row-{{i}}">
+          <td ng-repeat="j in densityMatrixRange" id="first-matrix-cell-{{i*100 + j}}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table density-table">
+        <tbody>
+        <tr ng-repeat="i in densityMatrixRange" id="second-matrix-row-{{i}}">
+          <td ng-repeat="j in densityMatrixRange" id="second-matrix-cell-{{i*100 + j}}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+
+</div>
+<script>
+
+</script>

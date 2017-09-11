@@ -3,14 +3,13 @@
 angular.module('app')
   // The controller function let's us give our controller a name: MainCtrl
   // We'll then pass an anonymous function to serve as the controller itself.
-  .controller('CountryCtrl', function ($scope, Restangular) {
+  .controller('HomeCtrl', function ($scope, Restangular) {
     Restangular.one('/country').get().then(function (response) {
       if(response.code == 200) {
         $scope.countries = response.data
       }
     });
     $scope.labels = ["Year"];
-    $scope.data = [[null]];
     $scope.series = ["Population"];
     var yearStart = 1960;
     var yearEnd = 2015;
@@ -20,10 +19,10 @@ angular.module('app')
     $scope.selectedCountryName = "";
 
     $scope.loadPopulation = function(){
-      Restangular.one('/population/', $scope.selectedCountry).get().then(function (response) {
-        $scope.selectedCountryName = $scope.countries[$scope.selectedCountry - 1].name;
+      Restangular.one('/population/', $scope.selectedCountryId).get().then(function (response) {
+        $scope.selectedCountryName = response.data.name;
         if(response.code == 200) {
-          $scope.population = response.data
+          $scope.population = response.data.population
         }
         $scope.data = [[null]];
         for (var i = 0; i <= yearEnd - yearStart; i++) {

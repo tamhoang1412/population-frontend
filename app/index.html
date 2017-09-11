@@ -1,3 +1,4 @@
+<base href="/">
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -16,15 +17,8 @@
 
   <!-- The ng-app directive tells angular which module we'll use for our app. In this case the one defined in scripts/app.js -->
   <body ng-app="app" ng-controller="MainCtrl">
-    <nav class="navbar navbar-inverse bg-inverse">
-      <a class="navbar-brand" href="#">Population</a>
-    </nav>
-
+    <div ng-include="'views/navbar.html'"></div>
     <div class="container" ui-view></div>
-
-
-
-
   </body>
 
   <!-- Here we load AngularJS, AngularJS resource component and bootstrap related code -->
@@ -48,7 +42,8 @@
   <!-- build:js scripts/scripts.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
-  <script src="scripts/controllers/countryController.js"></script>
+  <script src="scripts/controllers/homeController.js"></script>
+  <script src="scripts/controllers/comparatorController.js"></script>
 
   <script src="scripts/scripts.js"></script>
 </html>

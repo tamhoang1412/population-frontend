@@ -38,11 +38,13 @@ app.config([
   '$httpProvider',
   'RestangularProvider',
   'ChartJsProvider',
+  '$locationProvider',
 function ($stateProvider,
           $urlRouterProvider,
           $httpProvider,
           RestangularProvider,
-          ChartJsProvider){
+          ChartJsProvider,
+          $locationProvider){
     RestangularProvider.setBaseUrl('http://localhost:1412/');
     RestangularProvider.setRequestInterceptor(function (elem, operation, what) {
       if (operation === 'put') {
@@ -57,14 +59,18 @@ function ($stateProvider,
     $httpProvider.defaults.headers.patch = {};
 
     $urlRouterProvider.otherwise('/');
-    //ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
 
     $stateProvider
       .state('home', {
-          url: '/',
-          templateUrl: '/views/country.html',
-          controller: 'CountryCtrl'
-        })
+        url: '/',
+        templateUrl: '/views/home.html',
+        controller: 'HomeCtrl'
+      })
+      .state('comparator', {
+        url: '/comparator',
+        templateUrl: '/views/comparator.html',
+        controller: 'ComparatorCtrl'
+      })
 
 
 }]);
