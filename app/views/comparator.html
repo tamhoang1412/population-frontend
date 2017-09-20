@@ -1,0 +1,59 @@
+<div class="hero-unit" ng-controller="ComparatorCtrl">
+  <h3 class=>Compare population trending between two countries</h3>
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <div>
+        <label for="selectedCountryId1">Choose the first country: </label><br>
+        <select name="selectedCountryId1" id="selectedCountryId1" ng-change="loadPopulation1()" ng-model="selectedCountryId1">
+          <option value="">---Please select---</option>
+          <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <label for="selectedCountryId2">Choose the second country: </label><br>
+        <select name="selectedCountryId2" id="selectedCountryId2" ng-change="loadPopulation2()" ng-model="selectedCountryId2">
+          <option value="">---Please select---</option>
+          <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <canvas class="chart chart-line chart_labels comparator" chart-data="data" chart-labels="chartLabels" chart-colors="chartColors"
+              chart-series="chartSeries" chart-options="chartOptions" chart-dataset-override="chartDatasetOverride"></canvas>
+
+    </div>
+  </div>
+  <div ng-if="(selectedCountryName1 != null) || (selectedCountryName2 != null)" >
+    <div class="col-md-12">
+      <div class="col-md-4">
+        <h3>Population density:</h3>
+      </div>
+      <div ng-if="(selectedCountryName1 != null)" >
+        <div class="col-md-4">
+          <table class="table density-table">
+            <tbody>
+            <tr ng-repeat="i in densityMatrixRange" id="first-matrix-row-{{i}}">
+              <td ng-repeat="j in densityMatrixRange" id="first-matrix-cell-{{i*100 + j}}"></td>
+            </tr>
+            </tbody>
+          </table>
+          <h3 class="title">{{selectedCountryName1}} </h3>
+        </div>
+      </div>
+      <div ng-if="(selectedCountryName2 != null)" >
+        <div class="col-md-4">
+          <table class="table density-table">
+            <tbody>
+            <tr ng-repeat="i in densityMatrixRange" id="second-matrix-row-{{i}}">
+              <td ng-repeat="j in densityMatrixRange" id="second-matrix-cell-{{i*100 + j}}"></td>
+            </tr>
+            </tbody>
+          </table>
+          <h3 class="title">{{selectedCountryName2}} </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
