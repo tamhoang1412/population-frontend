@@ -5,8 +5,8 @@
     <option value="">---Please select---</option>
     <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
   </select><br>
-  <div ng-if="selectedCountryName != ''">
-    <h2 class="title">{{selectedCountryName}}'s population from 1950 to 2015 </h2>
+  <div ng-if="selectedCountryName != null">
+    <h3 class="title">{{selectedCountryName}}'s population from 1950 to 2015 </h3>
   </div>
 
   <canvas class="chart chart-line chart_labels" chart-data="data" chart-labels="labels"

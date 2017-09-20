@@ -1,27 +1,20 @@
 <base href="/">
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
 
-  <!-- The ng-app directive tells angular which module we'll use for our app. In this case the one defined in scripts/app.js -->
-  <body ng-app="app" ng-controller="MainCtrl">
+  <body ng-app="app">
     <div ng-include="'views/navbar.html'"></div>
     <div class="container" ui-view></div>
   </body>
 
-  <!-- Here we load AngularJS, AngularJS resource component and bootstrap related code -->
   <script src="components/angular/angular.js"></script>
   <script src="components/angular-resource/angular-resource.js"></script>
   <script src="components/angular-bootstrap/ui-bootstrap.js"></script>
@@ -31,19 +24,11 @@
   <script src="components/chart.js/dist/Chart.js"></script>
   <script src="components/angular-chart.js/angular-chart.js"></script>
 
-  <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- endbuild -->
 
-  <!-- Here we include our own angular scripts -->
-  <!-- build:js scripts/scripts.js -->
   <script src="scripts/app.js"></script>
-  <script src="scripts/controllers/main.js"></script>
   <script src="scripts/controllers/homeController.js"></script>
   <script src="scripts/controllers/comparatorController.js"></script>
-
-  <script src="scripts/scripts.js"></script>
 </html>

@@ -1,8 +1,5 @@
 'use strict';
-// Here we attach this controller to our testApp module
 angular.module('app')
-  // The controller function let's us give our controller a name: MainCtrl
-  // We'll then pass an anonymous function to serve as the controller itself.
   .controller('HomeCtrl', function ($scope, Restangular) {
     Restangular.one('/country').get().then(function (response) {
       if(response.code == 200) {
@@ -11,13 +8,11 @@ angular.module('app')
     });
     $scope.labels = ["Year"];
     $scope.series = ["Population"];
-    var yearStart = 1960;
-    var yearEnd = 2015;
-    for (var i = yearStart; i <= yearEnd; i++) {
+    let yearStart = 1960;
+    let yearEnd = 2015;
+    for (let i = yearStart; i <= yearEnd; i++) {
       $scope.labels.push(i);
     }
-    $scope.selectedCountryName = "";
-
     $scope.loadPopulation = function(){
       Restangular.one('/population/', $scope.selectedCountryId).get().then(function (response) {
         $scope.selectedCountryName = response.data.name;
@@ -25,23 +20,10 @@ angular.module('app')
           $scope.population = response.data.population
         }
         $scope.data = [[null]];
-        for (var i = 0; i <= yearEnd - yearStart; i++) {
+        for (let i = 0; i <= yearEnd - yearStart; i++) {
           $scope.data[0].push($scope.population[i].population);
         }
       })
-    }
-    $scope.datasetOverride = [{ yAxisID: 'y-axis' }];
-    $scope.options = {
-      scales: {
-        yAxes: [
-          {
-            id: 'y-axis',
-            type: 'linear',
-            display: true,
-            position: 'left'
-          }
-        ]
-      }
     };
   });
 

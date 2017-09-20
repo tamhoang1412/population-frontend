@@ -19,37 +19,41 @@
       </div>
     </div>
     <div class="col-md-8">
-      <canvas class="chart chart-line chart_labels" chart-data="data" chart-labels="labels" chart-colors="colors"
-              chart-series="series" chart-options="options" chart-dataset-override="datasetOverride"></canvas>
+      <canvas class="chart chart-line chart_labels comparator" chart-data="data" chart-labels="chartLabels" chart-colors="chartColors"
+              chart-series="chartSeries" chart-options="chartOptions" chart-dataset-override="chartDatasetOverride"></canvas>
 
     </div>
   </div>
-  <div class="col-md-12">
-    <div class="col-md-4">
-      <h3>Population density of these two countries:</h3>
-    </div>
-    <div class="col-md-4">
-      <table class="table density-table">
-        <tbody>
-        <tr ng-repeat="i in densityMatrixRange" id="first-matrix-row-{{i}}">
-          <td ng-repeat="j in densityMatrixRange" id="first-matrix-cell-{{i*100 + j}}"></td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-4">
-      <table class="table density-table">
-        <tbody>
-        <tr ng-repeat="i in densityMatrixRange" id="second-matrix-row-{{i}}">
-          <td ng-repeat="j in densityMatrixRange" id="second-matrix-cell-{{i*100 + j}}"></td>
-        </tr>
-        </tbody>
-      </table>
+  <div ng-if="(selectedCountryName1 != null) || (selectedCountryName2 != null)" >
+    <div class="col-md-12">
+      <div class="col-md-4">
+        <h3>Population density:</h3>
+      </div>
+      <div ng-if="(selectedCountryName1 != null)" >
+        <div class="col-md-4">
+          <table class="table density-table">
+            <tbody>
+            <tr ng-repeat="i in densityMatrixRange" id="first-matrix-row-{{i}}">
+              <td ng-repeat="j in densityMatrixRange" id="first-matrix-cell-{{i*100 + j}}"></td>
+            </tr>
+            </tbody>
+          </table>
+          <h3 class="title">{{selectedCountryName1}} </h3>
+        </div>
+      </div>
+      <div ng-if="(selectedCountryName2 != null)" >
+        <div class="col-md-4">
+          <table class="table density-table">
+            <tbody>
+            <tr ng-repeat="i in densityMatrixRange" id="second-matrix-row-{{i}}">
+              <td ng-repeat="j in densityMatrixRange" id="second-matrix-cell-{{i*100 + j}}"></td>
+            </tr>
+            </tbody>
+          </table>
+          <h3 class="title">{{selectedCountryName2}} </h3>
+        </div>
+      </div>
     </div>
   </div>
   <hr>
-
 </div>
-<script>
-
-</script>
