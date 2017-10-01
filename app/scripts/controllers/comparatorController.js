@@ -1,7 +1,11 @@
 'use strict';
 angular.module('app').controller('ComparatorCtrl', ComparatorCtrl);
 
-function ComparatorCtrl($scope, Restangular) {
+function ComparatorCtrl($scope, $state, Restangular) {
+  if(window.localStorage.getItem("token") === null){
+    $state.go('login');
+  }
+
   fetchCountryData($scope, Restangular);
   $scope.chartLabels = ["Year"];
   $scope.chartSeries = [];
@@ -79,7 +83,6 @@ function ComparatorCtrl($scope, Restangular) {
   }
 
   function clearDensity(matrixName){
-    console.log("clear");
     for (let i=0; i<10000; i++){
       $("#" + matrixName + "-matrix-cell-" + i).removeClass("red").removeClass("blue")
     }

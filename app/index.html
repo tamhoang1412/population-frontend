@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
 
-  <body ng-app="app">
-    <div ng-include="'views/navbar.html'"></div>
+  <body ng-app="app" ng-controller="mainCtrl" ng-class="{mainContainer : userLoggedIn != true}">
+    <div ng-include="'views/navbar.html'" ng-if="userLoggedIn"></div>
     <div class="container" ui-view></div>
   </body>
 
@@ -23,12 +23,20 @@
   <script src="components/restangular/dist/restangular.min.js"></script>
   <script src="components/chart.js/dist/Chart.js"></script>
   <script src="components/angular-chart.js/angular-chart.js"></script>
+  <script src="components/angularjs-social-login/angularjs-social-login.js"></script>
+  <script src="components/ngstorage/ngStorage.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer ></script>
 
   <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/loginController.js"></script>
   <script src="scripts/controllers/homeController.js"></script>
   <script src="scripts/controllers/comparatorController.js"></script>
+  <script src="scripts/controllers/mainController.js"></script>
+
+  <script src="scripts/constants/hosts.js"></script>
+  <script src="scripts/constants/others.js"></script>
+
 </html>
