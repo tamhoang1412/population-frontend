@@ -3,7 +3,9 @@
 var app = angular.module('app', [
 	'restangular',
 	'ui.router',
-  'chart.js'
+  'chart.js',
+  'socialLogin',
+  'ngStorage'
 ]);
 
 app.config([
@@ -14,12 +16,15 @@ app.config([
   'ChartJsProvider',
   '$locationProvider',
 function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider){
-    RestangularProvider.setBaseUrl('http://localhost:1412/');
-    RestangularProvider.setRequestInterceptor(function (elem, operation, what) {
+    RestangularProvider.setBaseUrl(BACKEND_HOST);
+    RestangularProvider.setRequestInterceptor(function (elem, operation ) {
       if (operation === 'put') {
         elem._id = undefined;
       }
       return elem;
+    });
+    RestangularProvider.setDefaultHeaders({
+        'Content-Type': 'application/json'
     });
 
     $httpProvider.defaults.headers.common = {};
@@ -30,6 +35,11 @@ function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
+      .state('login', {
+        url: '/login',
+        templateUrl: '/views/login.html',
+        controller: 'LoginCtrl'
+      })
       .state('home', {
         url: '/',
         templateUrl: '/views/home.html',
@@ -42,3 +52,6 @@ function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider
       })
 }]);
 
+app.config(function(socialProvider){
+  socialProvider.setGoogleKey(GOOGLE_CLIENT_ID);
+});
