@@ -10,8 +10,7 @@
     "underscore": "^1.8.3",
     "angular-chart.js": "^1.1.1",
     "angularjs-social-login": "^2.6.1",
-    "ngstorage": "^0.3.11"
-    "angular-chart.js": "^1.1.1",
+    "ngstorage": "^0.3.11",
     "angular-ui-router": "0.3.1",
     "restangular": "^1.6.1"
   },
